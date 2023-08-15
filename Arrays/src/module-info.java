@@ -2,7 +2,7 @@
  * 
  */
 /**
- * @author peixe
+ * @author AdrianoAmaroP
  *
  */
 module Arrays {
