@@ -10,7 +10,10 @@ public class Main {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		Contact[] contatos = new Contact[0];
+		Contact[] contatos = {
+				new Contact("maria alice", "9125-1122"),
+				new Contact("Adriano","xxxx-xxxx")
+		};
 		
 		int acao = 0;
 		
@@ -39,11 +42,11 @@ public class Main {
 				
 			if(acao == 2) {
 				//remove
-				System.out.println("qual numero?");
-				int n = sc.nextInt();
-				n--;
+				System.out.println("qual contato quer remover?");
+				int indice = sc.nextInt();
+				indice--;
 				
-				contatos = remove(contatos, n);
+				contatos = remove(contatos, indice);
 				
 			}
 			
@@ -67,7 +70,7 @@ public class Main {
 	}
 
 	private static String menu() {
-		return "=====MENU CONTATOS=====" 
+		return "===== MENU CONTATOS =====" 
 				+ "\n"
 				+ "1 - Adicionar contato"
 				+ "\n"
@@ -77,11 +80,18 @@ public class Main {
 				+ "\n"
 				+ "4 - exit"
 				+ "\n"
-				+ "=======================";
+				+ "=========================";
 			
 	}
 
 	private static void list(Contact[] obj) {
+		
+		if(obj == null) {
+			
+			System.out.println("lista está vazia");
+			return;
+		}
+		
 		int i = 1;
 		for(Contact x : obj) {
 			
@@ -110,23 +120,27 @@ public class Main {
 		return contatos;
 	}
 	
-	private static Contact[] remove(Contact[] contatos,int n) {
+	private static Contact[] remove(Contact[] contatos,int indice) {
+		
+		if(contatos.length == 1) {
+			contatos = null;
+			return contatos;
+		}
 	
-		contatos[n] = null;
+		contatos[indice] = null;
 		int size = contatos.length - 1;
-		for(int i = n; i < size ; i++) {
+		for(int i = indice; i < size ; i++) {
 			contatos[i] = contatos[i + 1]; 
 		}
 
-		Contact[] aux = contatos;
-		contatos = new Contact[size];
-		if(size != 1) {
+		Contact[] newArray = new Contact[size];
+		if(size > 0) {
 			for(int i = 0; i < size; i++) {
-				String nameAux = aux[i].getName();
-				String numberAux = aux[i].getNumber();
-				contatos[i] = new Contact(nameAux, numberAux);
+				String name = contatos[i].getName();
+				String number = contatos[i].getNumber();
+				newArray[i] = new Contact(name, number);
 			}
 		}
-		return contatos;
+		return newArray;
 	}
 }
