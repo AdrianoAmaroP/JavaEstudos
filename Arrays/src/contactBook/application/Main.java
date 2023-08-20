@@ -10,10 +10,7 @@ public class Main {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		Contact[] contatos = {
-				new Contact("maria alice", "9125-1122"),
-				new Contact("Adriano","xxxx-xxxx")
-		};
+		Contact[] contatos = new Contact[0];
 		
 		int acao = 0;
 		
@@ -36,7 +33,7 @@ public class Main {
 				
 				contatos = add(contatos,name,number);
 				
-				System.out.println("contato salvo");
+				System.out.println("contato salvo.");
 				}
 				
 				
@@ -47,7 +44,7 @@ public class Main {
 				indice--;
 				
 				contatos = remove(contatos, indice);
-				
+				System.out.println("contato removido.");
 			}
 			
 
@@ -86,7 +83,7 @@ public class Main {
 
 	private static void list(Contact[] obj) {
 		
-		if(obj == null) {
+		if(obj == null || obj.length == 0) {
 			
 			System.out.println("lista está vazia");
 			return;
