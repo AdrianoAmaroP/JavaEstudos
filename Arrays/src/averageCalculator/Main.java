@@ -1,5 +1,6 @@
 package averageCalculator;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -10,6 +11,13 @@ public class Main {
 		 * calculadora que soma os valores e mostra a sua media
 		 */
 		
+		String teste = "Vou tenta escrever isso em camel case";
+		teste.replace(" ","");
+		System.out.println(teste);
+		
+		
+		Locale.setDefault(Locale.getDefault());
+		System.out.println(Locale.getDefault());
 		System.out.println("=========================");
 		System.out.println("calcuradora de media");
 		System.out.println("=========================");
@@ -37,6 +45,8 @@ public class Main {
 		System.out.println("A MEDIA : " + avg);		
 		System.out.println("=========================");
 
+		
+	
 
 		scanner.close();
 		
