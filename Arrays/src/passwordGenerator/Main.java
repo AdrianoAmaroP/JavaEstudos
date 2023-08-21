@@ -37,7 +37,7 @@ public class Main {
 		
 		for(int i = 0; i < saved.length; i++) {
 			
-			System.out.println("Senha - " + count + "  " + saved[i]);
+			System.out.println("Senha - " + (i+1) + "  " + saved[i]);
 		}
 		
 		
